@@ -11,7 +11,7 @@ from zipfile import ZipFile
 
 import singer
 from singer import utils, metadata, metrics
-from bingads import AuthorizationData, OAuthWebAuthCodeGrant, ServiceClient
+from bingads import AuthorizationData, ServiceClient, OAuthDesktopMobileAuthCodeGrant
 import suds
 from suds.sudsobject import asdict
 import stringcase
@@ -29,7 +29,6 @@ REQUIRED_CONFIG_KEYS = [
     "customer_id",
     "account_ids",
     "oauth_client_id",
-    "oauth_client_secret",
     "refresh_token",
     "developer_token",
 ]
@@ -104,10 +103,10 @@ def create_sdk_client(service, account_id):
     LOGGER.info('Creating SOAP client with OAuth refresh credentials for service: %s, account_id %s',
                 service, account_id)
 
-    authentication = OAuthWebAuthCodeGrant(
-        CONFIG['oauth_client_id'],
-        CONFIG['oauth_client_secret'],
-        '') ## redirect URL not needed for refresh token
+    authentication = OAuthDesktopMobileAuthCodeGrant(
+        client_id=CONFIG['oauth_client_id'],
+        env='production'
+    ) ## redirect URL not needed for refresh token
 
     authentication.request_oauth_tokens_by_refresh_token(CONFIG['refresh_token'])
 
