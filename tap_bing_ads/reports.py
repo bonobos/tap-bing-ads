@@ -8,7 +8,9 @@ REPORT_WHITELIST = [
     'CampaignPerformanceReport',
     'GoalsAndFunnelsReport',
     'AudiencePerformanceReport',
-    'AdExtensionDetailReport'
+    'AdExtensionDetailReport',
+    'ProductPartitionPerformanceReport',
+    'ProductPartitionUnitPerformanceReport'
 ]
 
 REPORT_REQUIRED_FIELDS = ['_sdc_report_datetime', 'AccountId', 'TimePeriod']
