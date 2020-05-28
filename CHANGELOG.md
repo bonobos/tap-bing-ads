@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.0.11
+  * Add Product Partition reports
+
 ## 2.0.10
   * Adds `TopImpressionRatePercent`, `TopImpressionShareLostToBudgetPercent`, `TopImpressionShareLostToRankPercent`, `TopImpressionSharePercent` to field exclusions [#51](https://github.com/singer-io/tap-bing-ads/pull/51)
 
